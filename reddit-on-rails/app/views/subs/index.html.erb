@@ -1,0 +1,18 @@
+<section>
+  <%= link_to "Create Sub", new_sub_url %>
+
+  <% if @subs.empty? %>
+    <h2>There seems to be nothing here.</h2>
+    <p>Why don't you make something new?</p>
+  <% else %>
+    <h2>Browse Subs</h2>
+    <ul class="content-list">
+      <% @subs.each do |sub| %>
+        <li>
+          <h3><%= link_to sub.title, sub_url(sub) %></h3>
+          <p><%= sub.description %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>

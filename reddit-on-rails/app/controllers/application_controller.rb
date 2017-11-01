@@ -13,15 +13,20 @@ class ApplicationController < ActionController::Base
 
   def login!(user)
     @current_user = user
-    session[:sesion_token] = user.reset_token!
+    session[:session_token] = user.reset_token!
   end
 
   def logout!
-    current_user.reset_token!
+    current_user.try(:reset_token!)
     session[:session_token] = nil
   end
 
+  private
+
   def require_login
-    redirect_to new_session_url unless logged_in?
+    unless logged_in?
+      flash[:errors] = ["You must be logged in to do that"]
+      redirect_to new_session_url
+    end
   end
 end

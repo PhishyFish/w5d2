@@ -1,0 +1,26 @@
+<section>
+  <%= link_to "Edit Post", edit_post_url(@post) %>
+
+  <h2><%= @post.title %></h2>
+  <details open>
+    <p>submitted by @<%= @post.author.username %></p>
+    <p><%= @post.url %>
+    <p><%= @post.content %></p>
+  </details>
+
+  <!-- <%# if @post.comments.empty? %>
+    <h3>There are no comments yet.</h3>
+    <p>Be the first to write something!</p>
+  <%# else %>
+    <ul class="content-list">
+      <%# @post.comments.each do |comment| %>
+        <li>
+          <p>
+            <strong>@<%#= comment.author %>:</strong>
+            <%#= comment.content %>
+          </p>
+        </li>
+      <%# end %>
+    </ul>
+  <%# end %> -->
+</section>

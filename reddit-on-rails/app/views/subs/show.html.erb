@@ -1,0 +1,24 @@
+<section>
+  <%= link_to "Edit Sub", edit_sub_url(@sub) %>
+  <%= link_to "Create Post", new_post_url %>
+
+  <h2><%= @sub.title %></h2>
+  <details>
+    <p>moderated by @<%= @sub.moderator.username %></p>
+    <p><%= @sub.description %></p>
+  </details>
+
+  <% if @sub.posts.empty? %>
+    <h3>There seems to be nothing here.</h3>
+    <p>Why don't you make something new?</p>
+  <% else %>
+    <ul class="content-list">
+      <% @sub.posts.each do |post| %>
+        <li>
+          <h3><%= link_to post.title, post_url(post) %></h3>
+          <p>by <%= post.author %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>

@@ -1,8 +1,8 @@
 <header>
-  <h1>RedditOnRails</h1>
+  <a href="/subs"><h1><i class="fa fa-reddit" aria-hidden="true"></i> RedditOnRails</h1></a>
   <section class="header-buttons">
     <% if logged_in? %>
-      <strong><%= @current_user.username %></strong>
+      <strong><%= current_user.username %></strong>
       <%= button_to "Sign Out", session_url, method: :delete %>
     <% else %>
       <%= link_to "Sign In", new_session_url %>

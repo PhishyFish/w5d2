@@ -13,12 +13,13 @@ class SessionsController < ApplicationController
       login!(user)
       redirect_to subs_url
     else
-      flash.now[:errors] = ['Invalid login!']
+      flash.now[:errors] = ["Invalid username and password combination"]
       render :new
     end
   end
 
   def destroy
     logout!
+    redirect_to subs_url
   end
 end

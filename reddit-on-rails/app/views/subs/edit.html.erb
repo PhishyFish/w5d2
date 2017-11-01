@@ -1,0 +1,20 @@
+<section class="form">
+  <h1>Edit Sub</h1>
+
+  <form action="<%= sub_url(@sub) %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="patch">
+
+    <div class="text_input">
+      <label for="sub_title">Title</label>
+      <input id="sub_title" type="text" name="sub[title]" value="<%= @sub.title %>">
+    </div>
+
+    <div class="text_area">
+      <label for="sub_description">Description</label>
+      <textarea id="sub_description" name="sub[description]" rows="8"  placeholder="What's your sub about?"><%= @sub.description %></textarea>
+    </div>
+
+    <input type="submit" name="" value="Update Sub">
+  </form>
+</section>
